@@ -138,7 +138,8 @@ Player* PartyBotAI::GetPartyLeader() const
 
 void PartyBotAI::RunAwayFromTarget(Unit* pTarget)
 {
-    if (Player* pLeader = GetPartyLeader())
+    Player* pLeader = GetPartyLeader();
+    if (pLeader)
     {
         if (pLeader->IsInWorld() &&
             pLeader->GetMap() == me->GetMap())
@@ -153,8 +154,10 @@ void PartyBotAI::RunAwayFromTarget(Unit* pTarget)
             }
         }
     }
-
-    me->GetMotionMaster()->MoveDistance(pTarget, 15.0f);
+    if (me->GetDistance(pLeader) <= 15.0f)
+        me->GetMotionMaster()->MoveDistance(pTarget, 15.0f);
+    else
+        me->GetMotionMaster()->MoveDistance(pLeader, 15.0f);
 }
 
 bool PartyBotAI::DrinkAndEat()
