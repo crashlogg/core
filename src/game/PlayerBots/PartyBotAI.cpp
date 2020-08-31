@@ -221,7 +221,8 @@ bool PartyBotAI::ShouldAutoRevive() const
 
             if (pMember->IsAlive())
             {
-                if (IsHealerClass(pMember->GetClass()))
+                if ((IsHealerClass(pMember->GetClass())) &&
+                    !(pMember->GetClass() == CLASS_DRUID))
                     return false;
 
                 if (me->IsWithinDistInMap(pMember, 15.0f))
