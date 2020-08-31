@@ -498,6 +498,7 @@ void PartyBotAI::UpdateAI(uint32 const diff)
         {
             if (ShouldAutoRevive())
             {
+                Sleep(30000);
                 me->ResurrectPlayer(0.5f);
                 me->SpawnCorpseBones();
                 me->CastSpell(me, PB_SPELL_HONORLESS_TARGET, true);
