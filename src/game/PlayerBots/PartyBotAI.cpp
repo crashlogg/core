@@ -8,12 +8,13 @@
 #include "Spell.h"
 #include "SpellAuras.h"
 #include "Chat.h"
+#include "windows.h"
 #include <random>
 
 enum PartyBotSpells
 {
     PB_SPELL_FOOD = 1131,
-    PB_SPELL_DRINK = 1137,
+    PB_SPELL_DRINK = 10250,
     PB_SPELL_AUTO_SHOT = 75,
     PB_SPELL_SHOOT_WAND = 5019,
     PB_SPELL_HONORLESS_TARGET = 2479,
